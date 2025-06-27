@@ -18,7 +18,7 @@ from f5_tts.infer.utils_infer import (
     transcribe,
 )
 from f5_tts.model.utils import seed_everything
-#from pathlib import Path
+
 
 
 class F5TTS:
@@ -34,7 +34,7 @@ class F5TTS:
         hf_cache_dir=None,
     ):
 
-	model_name = model.split("/")[-1]  # Strip prefixes like SWivid/
+        model_name = model.split("/")[-1]  # Strip prefixes like SWivid/
         model_cfg = OmegaConf.load(str(files("f5_tts").joinpath(f"configs/{model_name}.yaml")))
         model_cls = get_class(f"f5_tts.model.{model_cfg.model.backbone}")
         model_arc = model_cfg.model.arch
